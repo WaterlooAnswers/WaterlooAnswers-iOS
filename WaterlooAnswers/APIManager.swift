@@ -133,7 +133,7 @@ class APIManager: NSObject {
             parameters["categoryId"] = cid
         }
 
-        Alamofire.request(.PUT, urlPath + "/api/questions/", parameters: parameters)
+        Alamofire.request(.GET, urlPath + "/api/questions", parameters: parameters)
             .response { (request, response, data, error) in
                 println(request)
                 println(response)
@@ -148,7 +148,29 @@ class APIManager: NSObject {
                 completion(questions: questionArray, error: error)
         }
     }
+
+    // MARK: Answers
+
+    func postAnswer(question: Question, answer: AnyObject, completion: (error: NSError!) -> Void) {
+        Alamofire.request(.POST, urlPath + "/api/answers", parameters: ["questionId": question.questionId, "answerBody": answer, "token": sessionToken])
+            .response { (request, response, data, error) in
+                println(request)
+                println(response)
+                println(error)
+                var questionArray: [Question] = []
+                if let dataArray = data as? [NSDictionary] {
+                    for item in dataArray {
+                        var question = Question(data: item)
+                        questionArray.append(question!)
+                    }
+                }
+                completion(error: error)
+        }
+    }
     
-    
-    
+    // MARK: Categories
+
+    func getCategories(completion: (error: NSError!) -> Void) {
+        // TODO: Category Manager
+    }
 }
