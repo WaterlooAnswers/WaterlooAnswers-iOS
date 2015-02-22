@@ -138,6 +138,14 @@
 			name = "API Manager";
 			sourceTree = "<group>";
 		};
+		1F6444F81A995DB400F7B996 /* Person */ = {
+			isa = PBXGroup;
+			children = (
+				1F6444F01A99593C00F7B996 /* Person.swift */,
+			);
+			name = Person;
+			sourceTree = "<group>";
+		};
 		1FEFD5121A99571C007480C2 = {
 			isa = PBXGroup;
 			children = (
@@ -160,9 +168,9 @@
 		1FEFD51D1A99571D007480C2 /* WaterlooAnswers */ = {
 			isa = PBXGroup;
 			children = (
-				1F6444EE1A99587500F7B996 /* API Manager */,
 				1FEFD5201A99571D007480C2 /* AppDelegate.swift */,
-				1F6444F01A99593C00F7B996 /* Person.swift */,
+				1F6444EE1A99587500F7B996 /* API Manager */,
+				1F6444F81A995DB400F7B996 /* Person */,
 				1FEFD5221A99571D007480C2 /* ViewController.swift */,
 				1FEFD5271A99571D007480C2 /* Images.xcassets */,
 				1FEFD51E1A99571D007480C2 /* Supporting Files */,

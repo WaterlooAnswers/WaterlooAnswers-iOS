@@ -14,12 +14,16 @@ class APIManager: NSObject {
     var sessionToken: String! = nil
     let urlPath = "http://askuw.sahiljain.ca/"
 
-    class var sharedInstance: APIManager {
+    // MARK: SharedInstance
+
+    class var sharedManager: APIManager {
         struct Static {
             static let instance: APIManager = APIManager()
         }
         return Static.instance
     }
+
+    // MARK: Login/SignUp
 
     func login(username: String, password: String, completion: () -> Void){
         Alamofire.request(.POST, urlPath + "/api/login", parameters: ["username": username,
@@ -28,7 +32,27 @@ class APIManager: NSObject {
                 println(request)
                 println(response)
                 println(error)
+                if let dataObj = data as? NSDictionary {
+                    if let token = dataObj.objectForKey("sessionToken") as? String {
+                        self.sessionToken = token;
+                    }
+                }
         }
     }
 
+    func signup(username: String, password: String, name: String, completion: () -> Void){
+        Alamofire.request(.POST, urlPath + "/api/signup", parameters: ["username": username,
+            "password": password, "name": name] )
+            .response { (request, response, data, error) in
+                println(request)
+                println(response)
+                println(error)
+                if let dataObj = data as? NSDictionary {
+                    if let token = dataObj.objectForKey("sessionToken") as? String {
+                        self.sessionToken = token;
+                    }
+                }
+        }
+    }
+    
 }
