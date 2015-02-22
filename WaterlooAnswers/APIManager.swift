@@ -94,5 +94,61 @@ class APIManager: NSObject {
         }
     }
 
+    func upvoteQuestion(question: Question, completion: (error: NSError!) -> Void) {
+        Alamofire.request(.PUT, urlPath + "/api/questions/" + question.questionId + "/upvote", parameters:["token": sessionToken])
+            .response { (request, response, data, error) in
+                println(request)
+                println(response)
+                println(error)
+                completion(error: error)
+        }
+    }
+
+    func downvoteQuestion(question: Question, completion: (error: NSError!) -> Void) {
+        Alamofire.request(.PUT, urlPath + "/api/questions/" + question.questionId + "/downvote", parameters:["token": sessionToken])
+            .response { (request, response, data, error) in
+                println(request)
+                println(response)
+                println(error)
+                completion(error: error)
+        }
+    }
+
+    func getQuestionByParameter(questionsPerPage: Int! = nil, pageNumber: Int! = nil, sortOrder: String! = nil, categoryId: Int! = nil, completion: (questions: [Question], error: NSError!) -> Void) {
+        var parameters = Dictionary <String, AnyObject>()
+
+        if let qpp = questionsPerPage {
+            parameters["questionsPerPage"] = qpp
+        }
+
+        if let pn = pageNumber {
+            parameters["pageNumber"] = pn
+        }
+
+        if let so = sortOrder {
+            parameters["sortOrder"] = so
+        }
+
+        if let cid = categoryId {
+            parameters["categoryId"] = cid
+        }
+
+        Alamofire.request(.PUT, urlPath + "/api/questions/", parameters: parameters)
+            .response { (request, response, data, error) in
+                println(request)
+                println(response)
+                println(error)
+                var questionArray: [Question] = []
+                if let dataArray = data as? [NSDictionary] {
+                    for item in dataArray {
+                        var question = Question(data: item)
+                        questionArray.append(question!)
+                    }
+                }
+                completion(questions: questionArray, error: error)
+        }
+    }
+    
+    
     
 }
