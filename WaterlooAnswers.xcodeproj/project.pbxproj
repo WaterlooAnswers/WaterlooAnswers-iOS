@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1F6444ED1A99581400F7B996 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F6444E01A99577500F7B996 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1F6444F11A99593C00F7B996 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6444F01A99593C00F7B996 /* Person.swift */; };
+		1F6444F61A9959E100F7B996 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6444F51A9959E100F7B996 /* APIManager.swift */; };
 		1FEFD5211A99571D007480C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEFD5201A99571D007480C2 /* AppDelegate.swift */; };
 		1FEFD5231A99571D007480C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEFD5221A99571D007480C2 /* ViewController.swift */; };
 		1FEFD5261A99571D007480C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FEFD5241A99571D007480C2 /* Main.storyboard */; };
@@ -76,6 +78,8 @@
 
 /* Begin PBXFileReference section */
 		1F6444D81A99577400F7B996 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = SOURCE_ROOT; };
+		1F6444F01A99593C00F7B996 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		1F6444F51A9959E100F7B996 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		1FEFD51B1A99571D007480C2 /* WaterlooAnswers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaterlooAnswers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FEFD51F1A99571D007480C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FEFD5201A99571D007480C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 		1F6444EE1A99587500F7B996 /* API Manager */ = {
 			isa = PBXGroup;
 			children = (
+				1F6444F51A9959E100F7B996 /* APIManager.swift */,
 			);
 			name = "API Manager";
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 			children = (
 				1F6444EE1A99587500F7B996 /* API Manager */,
 				1FEFD5201A99571D007480C2 /* AppDelegate.swift */,
+				1F6444F01A99593C00F7B996 /* Person.swift */,
 				1FEFD5221A99571D007480C2 /* ViewController.swift */,
 				1FEFD5271A99571D007480C2 /* Images.xcassets */,
 				1FEFD51E1A99571D007480C2 /* Supporting Files */,
@@ -330,6 +336,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F6444F61A9959E100F7B996 /* APIManager.swift in Sources */,
+				1F6444F11A99593C00F7B996 /* Person.swift in Sources */,
 				1FEFD5231A99571D007480C2 /* ViewController.swift in Sources */,
 				1FEFD5211A99571D007480C2 /* AppDelegate.swift in Sources */,
 			);
