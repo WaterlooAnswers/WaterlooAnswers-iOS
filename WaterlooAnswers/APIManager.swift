@@ -37,6 +37,7 @@ class APIManager: NSObject {
                         self.sessionToken = token;
                     }
                 }
+                completion()
         }
     }
 
@@ -52,6 +53,7 @@ class APIManager: NSObject {
                         self.sessionToken = token;
                     }
                 }
+                completion()
         }
     }
     
