@@ -15,10 +15,11 @@ class Question: NSObject {
     var questionDescription: String! = nil
     var askerId: String! = nil
     var askerEmail: String! = nil
-    var category: Int! = 0 // TODO: Update to Category Enum
+    var categoryId: Int! = nil // TODO: Update to Category Enum
+    var categoryName: String! = nil
     var numAnswers: Int! = 0
     //var answers: [Answers]! = []
-    //var favourites: [AnyObject]! = []
+    var favourites: [Person]! = []
     var timeAsked: NSDate! = nil
 
     init?(data: NSDictionary) {
