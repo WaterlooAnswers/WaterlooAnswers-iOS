@@ -34,7 +34,7 @@ class APIManager: NSObject {
                 println(error)
                 if let dataObj = data as? NSDictionary {
                     if let token = dataObj.objectForKey("sessionToken") as? String {
-                        self.sessionToken = token;
+                        self.sessionToken = token
                     }
                 }
                 completion(error: error)
@@ -50,7 +50,7 @@ class APIManager: NSObject {
                 println(error)
                 if let dataObj = data as? NSDictionary {
                     if let token = dataObj.objectForKey("sessionToken") as? String {
-                        self.sessionToken = token;
+                        self.sessionToken = token
                     }
                 }
                 completion(error: error)
