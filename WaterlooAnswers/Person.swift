@@ -10,6 +10,8 @@ import UIKit
 
 class Person: NSObject {
 
+    // TODO: Peson Object
+
     var username: String! = nil
     var name: String! = nil
 
