@@ -10,10 +10,10 @@ import UIKit
 
 class Person: NSObject {
 
-    var userId: String! = nil
-    var firstName: String! = nil
-    var email: String! = nil
-    var dateJoined: NSDate! = nil
+    var userId: String?
+    var firstName: String?
+    var email: String?
+    var dateJoined: NSDate?
     var questionsAsked: [Question] = []
     var answersGiven: [Answer] = []
 
