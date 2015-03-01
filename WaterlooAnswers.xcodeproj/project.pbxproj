@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F4E8BC91AA28B0000786417 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4E8BC81AA28B0000786417 /* Answer.swift */; };
 		1F6444ED1A99581400F7B996 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F6444E01A99577500F7B996 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1F6444F11A99593C00F7B996 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6444F01A99593C00F7B996 /* Person.swift */; };
 		1F6444F61A9959E100F7B996 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6444F51A9959E100F7B996 /* APIManager.swift */; };
@@ -78,6 +79,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1F4E8BC81AA28B0000786417 /* Answer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		1F6444D81A99577400F7B996 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = SOURCE_ROOT; };
 		1F6444F01A99593C00F7B996 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		1F6444F51A9959E100F7B996 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
@@ -112,6 +114,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F4E8BC41AA28AE200786417 /* Answer */ = {
+			isa = PBXGroup;
+			children = (
+				1F4E8BC81AA28B0000786417 /* Answer.swift */,
+			);
+			name = Answer;
+			sourceTree = "<group>";
+		};
 		1F6444D91A99577400F7B996 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +190,7 @@
 			children = (
 				1FEFD5201A99571D007480C2 /* AppDelegate.swift */,
 				1F6444EE1A99587500F7B996 /* API Manager */,
+				1F4E8BC41AA28AE200786417 /* Answer */,
 				1F6444F81A995DB400F7B996 /* Person */,
 				1F94A2671A9A5E4700BEA263 /* Question */,
 				1FEFD5221A99571D007480C2 /* ViewController.swift */,
@@ -358,6 +369,7 @@
 				1F94A26C1A9A5E5B00BEA263 /* Question.swift in Sources */,
 				1F6444F61A9959E100F7B996 /* APIManager.swift in Sources */,
 				1F6444F11A99593C00F7B996 /* Person.swift in Sources */,
+				1F4E8BC91AA28B0000786417 /* Answer.swift in Sources */,
 				1FEFD5231A99571D007480C2 /* ViewController.swift in Sources */,
 				1FEFD5211A99571D007480C2 /* AppDelegate.swift in Sources */,
 			);

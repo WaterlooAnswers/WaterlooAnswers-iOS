@@ -10,19 +10,20 @@ import UIKit
 
 class Question: NSObject {
 
-    var questionId: String! = nil
-    var name: String! = nil
-    var questionDescription: String! = nil
-    var askerId: String! = nil
-    var askerEmail: String! = nil
-    var categoryId: Int! = nil // TODO: Update to Category Enum
-    var categoryName: String! = nil
-    var numAnswers: Int! = 0
-    //var answers: [Answers]! = []
-    var favourites: [Person]! = []
-    var timeAsked: NSDate! = nil
+    var questionId: String? 
+    var name: String? 
+    var questionDescription: String? 
+    var askerId: String? 
+    var askerEmail: String? 
+    var categoryId: Int?  // TODO: Update to Category Enum
+    var categoryName: String? 
+    var numAnswers: Int? = 0
+    var answers: [Answer] = []
+    var favourites: [Person] = []
+    var timeAsked: NSDate? 
 
     init?(data: NSDictionary) {
         super.init()
     }
+
 }
