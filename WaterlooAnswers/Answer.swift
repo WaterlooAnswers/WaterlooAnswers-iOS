@@ -10,12 +10,12 @@ import UIKit
 
 class Answer: NSObject {
 
-    var questionId: String! = nil
-    var answerId: String! = nil
-    var answererId: String! = nil
-    var answererName: String! = nil
-    var answerText: String! = nil
-    var answerDate: NSDate! = nil
+    var questionId: String! 
+    var answerId: String! 
+    var answererId: String! 
+    var answererName: String! 
+    var answerText: String! 
+    var answerDate: NSDate! 
 
     init?(data: NSDictionary) {
         super.init()

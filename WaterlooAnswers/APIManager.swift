@@ -11,7 +11,7 @@ import Alamofire
 
 class APIManager: NSObject {
 
-    var sessionToken: String! = ""
+    var sessionToken: String!
     let urlPath = "http://askuw.sahiljain.ca/"
 
     // MARK: SharedInstance
