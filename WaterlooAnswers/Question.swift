@@ -18,11 +18,12 @@ class Question: NSObject {
     var categoryId: Int! = nil // TODO: Update to Category Enum
     var categoryName: String! = nil
     var numAnswers: Int! = 0
-    //var answers: [Answers]! = []
+    var answers: [Answer]! = []
     var favourites: [Person]! = []
     var timeAsked: NSDate! = nil
 
     init?(data: NSDictionary) {
         super.init()
     }
+
 }

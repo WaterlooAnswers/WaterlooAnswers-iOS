@@ -11,7 +11,7 @@ import Alamofire
 
 class APIManager: NSObject {
 
-    var sessionToken: String! = nil
+    var sessionToken: String! = ""
     let urlPath = "http://askuw.sahiljain.ca/"
 
     // MARK: SharedInstance
@@ -32,9 +32,9 @@ class APIManager: NSObject {
                 println(request)
                 println(response)
                 println(error)
-                if let dataObj = data as? NSDictionary {
-                    if let token = dataObj.objectForKey("sessionToken") as? String {
-                        self.sessionToken = token
+                if let dataObj = data as? Dictionary<String, AnyObject> {
+                    if let token = dataObj["sessionToken"] as? String {
+                        self.sessionToken = token;
                     }
                 }
                 completion(error: error)
@@ -48,12 +48,26 @@ class APIManager: NSObject {
                 println(request)
                 println(response)
                 println(error)
-                if let dataObj = data as? NSDictionary {
-                    if let token = dataObj.objectForKey("sessionToken") as? String {
-                        self.sessionToken = token
+                if let dataObj = data as? Dictionary<String, AnyObject> {
+                    if let token = dataObj["sessionToken"] as? String {
+                        self.sessionToken = token;
                     }
                 }
                 completion(error: error)
+        }
+    }
+
+    // MARK: User
+
+    func getUser(completion: (person: Person) -> Void) {
+        Alamofire.request(.GET, urlPath + "/api/user", parameters: ["token": sessionToken])
+            .response { (request, response, data, error) in
+                println(request)
+                println(response)
+                println(error)
+                if let dataObj = data as? Dictionary<String, AnyObject> {
+                    var person = Person(data: dataObj)
+                }
         }
     }
 
@@ -65,7 +79,7 @@ class APIManager: NSObject {
                 println(request)
                 println(response)
                 println(error)
-                if let dataObj = data as? NSDictionary {
+                if let dataObj = data as? Dictionary<String, AnyObject> {
                     var questionObj = Question(data: dataObj)
                     completion(question: questionObj)
                 } else {
@@ -139,7 +153,7 @@ class APIManager: NSObject {
                 println(response)
                 println(error)
                 var questionArray: [Question] = []
-                if let dataArray = data as? [NSDictionary] {
+                if let dataArray = data as? [Dictionary<String, AnyObject>] {
                     for item in dataArray {
                         var question = Question(data: item)
                         questionArray.append(question!)
@@ -158,7 +172,7 @@ class APIManager: NSObject {
                 println(response)
                 println(error)
                 var questionArray: [Question] = []
-                if let dataArray = data as? [NSDictionary] {
+                if let dataArray = data as? [Dictionary<String, AnyObject>] {
                     for item in dataArray {
                         var question = Question(data: item)
                         questionArray.append(question!)
@@ -181,4 +195,5 @@ class APIManager: NSObject {
                 }
         }
     }
+
 }
