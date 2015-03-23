@@ -12,6 +12,8 @@
 		1F6444F11A99593C00F7B996 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6444F01A99593C00F7B996 /* Person.swift */; };
 		1F6444F61A9959E100F7B996 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6444F51A9959E100F7B996 /* APIManager.swift */; };
 		1F94A26C1A9A5E5B00BEA263 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F94A26B1A9A5E5B00BEA263 /* Question.swift */; };
+		1FA09E9B1ABF915A00C44319 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA09E9A1ABF915A00C44319 /* AuthViewController.swift */; };
+		1FA09EA01ABF937C00C44319 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA09E9F1ABF937C00C44319 /* AccountManager.swift */; };
 		1FEFD5211A99571D007480C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEFD5201A99571D007480C2 /* AppDelegate.swift */; };
 		1FEFD5231A99571D007480C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEFD5221A99571D007480C2 /* ViewController.swift */; };
 		1FEFD5261A99571D007480C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FEFD5241A99571D007480C2 /* Main.storyboard */; };
@@ -84,6 +86,8 @@
 		1F6444F01A99593C00F7B996 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		1F6444F51A9959E100F7B996 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		1F94A26B1A9A5E5B00BEA263 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		1FA09E9A1ABF915A00C44319 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		1FA09E9F1ABF937C00C44319 /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		1FEFD51B1A99571D007480C2 /* WaterlooAnswers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaterlooAnswers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FEFD51F1A99571D007480C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FEFD5201A99571D007480C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -142,12 +146,13 @@
 			path = WaterlooAnswers;
 			sourceTree = "<group>";
 		};
-		1F6444EE1A99587500F7B996 /* API Manager */ = {
+		1F6444EE1A99587500F7B996 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				1F6444F51A9959E100F7B996 /* APIManager.swift */,
+				1FA09E9F1ABF937C00C44319 /* AccountManager.swift */,
 			);
-			name = "API Manager";
+			name = Managers;
 			sourceTree = "<group>";
 		};
 		1F6444F81A995DB400F7B996 /* Person */ = {
@@ -189,11 +194,12 @@
 			isa = PBXGroup;
 			children = (
 				1FEFD5201A99571D007480C2 /* AppDelegate.swift */,
-				1F6444EE1A99587500F7B996 /* API Manager */,
+				1F6444EE1A99587500F7B996 /* Managers */,
 				1F4E8BC41AA28AE200786417 /* Answer */,
 				1F6444F81A995DB400F7B996 /* Person */,
 				1F94A2671A9A5E4700BEA263 /* Question */,
 				1FEFD5221A99571D007480C2 /* ViewController.swift */,
+				1FA09E9A1ABF915A00C44319 /* AuthViewController.swift */,
 				1FEFD5271A99571D007480C2 /* Images.xcassets */,
 				1FEFD51E1A99571D007480C2 /* Supporting Files */,
 			);
@@ -369,9 +375,11 @@
 				1F94A26C1A9A5E5B00BEA263 /* Question.swift in Sources */,
 				1F6444F61A9959E100F7B996 /* APIManager.swift in Sources */,
 				1F6444F11A99593C00F7B996 /* Person.swift in Sources */,
+				1FA09E9B1ABF915A00C44319 /* AuthViewController.swift in Sources */,
 				1F4E8BC91AA28B0000786417 /* Answer.swift in Sources */,
 				1FEFD5231A99571D007480C2 /* ViewController.swift in Sources */,
 				1FEFD5211A99571D007480C2 /* AppDelegate.swift in Sources */,
+				1FA09EA01ABF937C00C44319 /* AccountManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

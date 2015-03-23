@@ -108,12 +108,18 @@ class APIManager: NSObject {
 
     func addQuestion(question: Question, completion: (error: NSError!) -> Void) {
         if let sessionToken = self.sessionToken {
-            Alamofire.request(.POST, urlPath + "/api/questions/", parameters: ["questionTitle": question.name, "questionDescription": question.questionDescription, "categoryIndex": question.categoryId, "token": sessionToken])
-                .response { (request, response, data, error) in
-                    println(request)
-                    println(response)
-                    println(error)
-                    completion(error: error)
+            if let name = question.name {
+                if let questionDescription = question.questionDescription {
+                    if let categoryId = question.categoryId {
+                        Alamofire.request(.POST, urlPath + "/api/questions/", parameters: ["questionTitle": name, "questionDescription": questionDescription, "categoryIndex": categoryId, "token": sessionToken])
+                            .response { (request, response, data, error) in
+                                println(request)
+                                println(response)
+                                println(error)
+                                completion(error: error)
+                        }
+                    }
+                }
             }
         } else {
             println("Session Token is nil")
@@ -122,12 +128,14 @@ class APIManager: NSObject {
 
     func upvoteQuestion(question: Question, completion: (error: NSError!) -> Void) {
         if let sessionToken = self.sessionToken {
-            Alamofire.request(.PUT, urlPath + "/api/questions/" + question.questionId + "/upvote", parameters:["token": sessionToken])
-                .response { (request, response, data, error) in
-                    println(request)
-                    println(response)
-                    println(error)
-                    completion(error: error)
+            if let questionId = question.questionId {
+                Alamofire.request(.PUT, urlPath + "/api/questions/" + questionId + "/upvote", parameters:["token": sessionToken])
+                    .response { (request, response, data, error) in
+                        println(request)
+                        println(response)
+                        println(error)
+                        completion(error: error)
+                }
             }
         } else {
             println("Session Token is nil")
@@ -136,12 +144,14 @@ class APIManager: NSObject {
 
     func downvoteQuestion(question: Question, completion: (error: NSError!) -> Void) {
         if let sessionToken = self.sessionToken {
-            Alamofire.request(.PUT, urlPath + "/api/questions/" + question.questionId + "/downvote", parameters:["token": sessionToken])
-                .response { (request, response, data, error) in
-                    println(request)
-                    println(response)
-                    println(error)
-                    completion(error: error)
+            if let questionId = question.questionId {
+                Alamofire.request(.PUT, urlPath + "/api/questions/" + questionId + "/downvote", parameters:["token": sessionToken])
+                    .response { (request, response, data, error) in
+                        println(request)
+                        println(response)
+                        println(error)
+                        completion(error: error)
+                }
             }
         } else {
             println("Session Token is nil")
@@ -187,19 +197,21 @@ class APIManager: NSObject {
 
     func postAnswer(question: Question, answer: AnyObject, completion: (error: NSError!) -> Void) {
         if let sessionToken = self.sessionToken {
-            Alamofire.request(.POST, urlPath + "/api/answers", parameters: ["questionId": question.questionId, "answerBody": answer, "token": sessionToken])
-                .response { (request, response, data, error) in
-                    println(request)
-                    println(response)
-                    println(error)
-                    var questionArray: [Question] = []
-                    if let dataArray = data as? [Dictionary<String, AnyObject>] {
-                        for item in dataArray {
-                            var question = Question(data: item)
-                            questionArray.append(question!)
+            if let questionId = question.questionId {
+                Alamofire.request(.POST, urlPath + "/api/answers", parameters: ["questionId": questionId, "answerBody": answer, "token": sessionToken])
+                    .response { (request, response, data, error) in
+                        println(request)
+                        println(response)
+                        println(error)
+                        var questionArray: [Question] = []
+                        if let dataArray = data as? [Dictionary<String, AnyObject>] {
+                            for item in dataArray {
+                                var question = Question(data: item)
+                                questionArray.append(question!)
+                            }
                         }
-                    }
-                    completion(error: error)
+                        completion(error: error)
+                }
             }
         } else {
             println("Session Token is nil")
@@ -219,5 +231,5 @@ class APIManager: NSObject {
                 }
         }
     }
-    
+
 }
