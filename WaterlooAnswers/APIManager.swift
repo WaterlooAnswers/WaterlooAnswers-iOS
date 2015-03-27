@@ -12,7 +12,7 @@ import Alamofire
 class APIManager: NSObject {
 
     var sessionToken: String?
-    let urlPath = "http://askuw.sahiljain.ca/"
+    let urlPath = "http://askuw.sahiljain.ca"
 
     // MARK: SharedInstance
 
@@ -25,15 +25,15 @@ class APIManager: NSObject {
 
     // MARK: Login Flow
 
-    func login(username: String, password: String, completion: (error: NSError!) -> Void) {
-        Alamofire.request(.POST, urlPath + "/api/login", parameters: ["username": username,
-            "password": password] )
+    func login(username: String, password: String, completion: (error: NSError?) -> Void) {
+        Alamofire.request(.POST, urlPath + "/api/login?email=" + username + "&password=" + password, parameters: nil )
             .response { (request, response, data, error) in
                 println(request)
                 println(response)
                 println(error)
                 if let dataObj = data as? Dictionary<String, AnyObject> {
-                    if let token = dataObj["sessionToken"] as? String {
+                    if let token = dataObj["token"] as? String {
+                        println("session: " + token)
                         self.sessionToken = token;
                     }
                 }

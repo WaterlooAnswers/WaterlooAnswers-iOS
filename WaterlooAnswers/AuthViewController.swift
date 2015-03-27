@@ -16,24 +16,22 @@ enum AuthType {
     case SignIn, SignUp
 }
 
-class AuthViewController: UITableViewController {
+class AuthViewController: UITableViewController, UITextFieldDelegate {
 
     var rowTypeArray: [AuthRowType] = [.Email, .Password]
     var email: String?
     var name: String?
     var password: String?
-    var authType: AuthType!
+    var authType: AuthType
+    let identifier = "textCell"
 
     init(type: AuthType) {
-        super.init()
         authType = type
+        super.init(nibName: nil, bundle: nil)
+
         if authType == .SignUp {
             rowTypeArray = [.Email, .Name, .Password]
         }
-    }
-
-    private override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -42,6 +40,8 @@ class AuthViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        tableView.registerClass(TextFieldCell.self, forCellReuseIdentifier: identifier)
 
         if authType == .SignUp {
             self.title = NSLocalizedString("Sign Up", comment: "")
@@ -53,6 +53,7 @@ class AuthViewController: UITableViewController {
         var footer = UIButton(frame: CGRectMake(0, 0, self.view.frame.width, 35))
         footer.backgroundColor = .greenColor()
         footer.setTitle(NSLocalizedString("Let Me In", comment: ""), forState: .Normal)
+        footer.addTarget(self, action: "didTapButton", forControlEvents: .TouchUpInside)
 
         tableView.tableFooterView = footer
     }
@@ -68,8 +69,61 @@ class AuthViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as TextFieldCell
+        cell.textField.addTarget(self, action: "textFieldDidChange:", forControlEvents: UIControlEvents.EditingChanged)
+        cell.textField.tag = indexPath.row
+        var rowType = rowTypeArray[indexPath.row]
+        switch rowType {
+        case .Email:
+            cell.textField.placeholder = NSLocalizedString("Email Address",  comment: "")
+        case .Name:
+            cell.textField.placeholder = NSLocalizedString("First Name",  comment: "")
+        case .Password:
+            cell.textField.placeholder = NSLocalizedString("Password",  comment: "")
+        default:
+            break;
+        }
         return cell
+    }
+
+    func textFieldDidChange(textField: UITextField) {
+        var rowType = rowTypeArray[textField.tag]
+        switch rowType {
+        case .Email:
+            email = textField.text
+        case .Name:
+            name = textField.text
+        case .Password:
+            password = textField.text
+        default:
+            break;
+        }
+    }
+
+    func didTapButton() {
+        if authType == .SignUp {
+            if let email = email {
+                if let password = password {
+                    if let name = name {
+                        APIManager.sharedManager.signup(email, password: password, name: name, completion: { (error) -> Void in
+                            if let err = error {
+                                println(error)
+                            }
+                        })
+                    }
+                }
+            }
+        } else {
+            if let email = email {
+                if let password = password {
+                    APIManager.sharedManager.login(email, password: password, completion: { (error) -> Void in
+                        if let err = error {
+                            println(error)
+                        }
+                    })
+                }
+            }
+        }
     }
 
 

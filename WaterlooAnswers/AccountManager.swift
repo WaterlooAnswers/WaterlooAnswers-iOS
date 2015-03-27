@@ -18,5 +18,5 @@ class AccountManager: NSObject {
         }
         return Static.instance
     }
-    
+
 }
